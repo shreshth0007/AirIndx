@@ -1,0 +1,44 @@
+{
+  "agentName": "GreenPulse-Environmental-AI-Agent",
+  "agentVersion": "1.0",
+  "foundationModel": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+  "instruction": "You are GreenPulse AI, an expert environmental & atmospheric scientist specializing in Track 01: Air requirements. Analyze AQI, PM2.5, satellite stubble burning hotspots, school recess safety ratings, and indoor HEPA air change requirements.",
+  "actionGroups": [
+    {
+      "actionGroupName": "AirQualityIntelligenceGroup",
+      "description": "Endpoints to analyze live air quality, stubble fire hotspots, school safety indices, and indoor filtration guidance.",
+      "actionGroupExecutor": {
+        "customControl": "RETURN_CONTROL"
+      },
+      "apiSchema": {
+        "payload": {
+          "openapi": "3.0.0",
+          "info": {
+            "title": "GreenPulse AI Agent OpenAPI Schema",
+            "version": "1.0.0"
+          },
+          "paths": {
+            "/api/v1/analyze-aqi": {
+              "post": {
+                "summary": "Analyze AQI and generate medical recommendations",
+                "operationId": "analyzeAQI"
+              }
+            },
+            "/api/v1/stubble-hotspots": {
+              "get": {
+                "summary": "Get active NASA VIIRS stubble fire hotspots",
+                "operationId": "getStubbleHotspots"
+              }
+            },
+            "/api/v1/school-safety": {
+              "post": {
+                "summary": "Calculate CPCB school outdoor recess safety advisory",
+                "operationId": "calculateSchoolSafety"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
